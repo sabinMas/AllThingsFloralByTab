@@ -9,6 +9,9 @@ import "./globals.css";
 const hasOgImage = fs.existsSync(
   path.join(process.cwd(), "public", "images", "og-image.jpg")
 );
+const hasSquareLogo = fs.existsSync(
+  path.join(process.cwd(), "public", "images", "logo", "logo-square.png")
+);
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -56,7 +59,7 @@ export default function RootLayout({
       className={`${playfair.variable} ${cormorant.variable} ${alexBrush.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-ink font-body">
-        <Header />
+        <Header hasLogo={hasSquareLogo} />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

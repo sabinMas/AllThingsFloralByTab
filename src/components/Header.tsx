@@ -2,23 +2,37 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { navLinks } from "@/lib/site";
 
-export default function Header() {
+type HeaderProps = {
+  hasLogo: boolean;
+};
+
+export default function Header({ hasLogo }: HeaderProps) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-ink/10">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link
-          href="/"
-          className="font-display text-xl tracking-wide text-ink"
-          onClick={() => setOpen(false)}
-        >
-          All Things Floral{" "}
-          <span className="font-script text-2xl text-blush">by Tab</span>
+        <Link href="/" onClick={() => setOpen(false)} className="flex items-center">
+          {hasLogo ? (
+            <Image
+              src="/images/logo/logo-square.png"
+              alt="All Things Floral by Tab"
+              width={48}
+              height={48}
+              className="h-11 w-11 rounded-full object-cover"
+              priority
+            />
+          ) : (
+            <span className="font-display text-xl tracking-wide text-ink">
+              All Things Floral{" "}
+              <span className="font-script text-2xl text-blush">by Tab</span>
+            </span>
+          )}
         </Link>
 
         {/* Desktop nav */}
