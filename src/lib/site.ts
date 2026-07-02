@@ -4,8 +4,7 @@ export const siteConfig = {
   serviceArea: "serving the Pacific Northwest",
   instagramUrl: "https://www.instagram.com/allthingsfloralbytab/",
   instagramHandle: "@allthingsfloralbytab",
-  // TODO: replace with Tab's real Facebook page URL, then set hasFacebook to true.
-  facebookUrl: "",
+  facebookUrl: "https://www.facebook.com/profile.php?id=61591190619034",
 };
 
 export const navLinks = [
