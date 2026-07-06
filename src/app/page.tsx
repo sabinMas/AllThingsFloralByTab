@@ -28,7 +28,7 @@ export default function Home() {
       <div className="h-dvh snap-y snap-mandatory overflow-y-auto md:hidden">
         <div className="relative flex h-dvh snap-start snap-always flex-col items-center justify-center">
           <Hero />
-          <div className="absolute bottom-6 flex flex-col items-center gap-1 text-ink-soft">
+          <div className="absolute bottom-12 flex flex-col items-center gap-1 text-ink-soft">
             <svg
               viewBox="0 0 24 24"
               fill="none"
