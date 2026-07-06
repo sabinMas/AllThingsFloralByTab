@@ -75,7 +75,7 @@ export default function MobileGallerySlideshow({
               alt={image.alt}
               fill
               sizes="100vw"
-              className="object-cover"
+              className="object-contain"
               priority={i === 0}
             />
           </div>
