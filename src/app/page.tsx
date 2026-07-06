@@ -1,20 +1,43 @@
 import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import ImageGallery from "@/components/ImageGallery";
+import MobileGallerySlideshow from "@/components/MobileGallerySlideshow";
 import ServiceCard from "@/components/ServiceCard";
 import CTAButton from "@/components/CTAButton";
 import { getGalleryImages } from "@/lib/gallery";
 import { services } from "@/data/services";
 import { siteConfig } from "@/lib/site";
 
+function shuffled<T>(items: T[]): T[] {
+  const arr = [...items];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 export default function Home() {
-  const teaserImages = getGalleryImages().slice(0, 6);
+  const allImages = getGalleryImages();
+  const teaserImages = allImages.slice(0, 6);
+  const slideshowImages = shuffled(allImages);
 
   return (
     <>
-      <Hero />
+      {/* Mobile only: hero + full-screen slideshow snap-scroll together; desktop keeps normal flow below */}
+      <div className="h-dvh snap-y snap-mandatory overflow-y-auto md:hidden">
+        <div className="flex h-dvh snap-start snap-always flex-col items-center justify-center">
+          <Hero />
+        </div>
+        <div className="h-dvh snap-start snap-always">
+          <MobileGallerySlideshow images={slideshowImages} />
+        </div>
+      </div>
+      <div className="hidden md:block">
+        <Hero />
+      </div>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <section className="mx-auto hidden max-w-6xl px-4 py-16 sm:px-6 md:block">
         <SectionHeading
           eyebrow="Our Work"
           title="Recent Weddings"

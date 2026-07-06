@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --color-cream: #f5f0e8;
-  --color-cream-dark: #ede4d3;
-  --color-blush: #d9a9a0;
+  --color-cream: #f2dfe0;
+  --color-cream-dark: #e6c7c9;
+  --color-blush: #a94f6a;
   --color-sage: #9caa84;
   --color-lavender: #c6bedb;
-  --color-ink: #3a2e2a;
-  --color-ink-soft: #5c4a42;
+  --color-ink: #46293a;
+  --color-ink-soft: #6b4a5c;
 }
 
 @theme inline {
@@ -22,103 +22,6 @@
   --font-display: var(--font-playfair), serif;
   --font-body: var(--font-cormorant), serif;
   --font-script: var(--font-script), cursive;
-}
-
-/* ---- Palette candidates (light mode), toggled via data-theme on <html> ----
-   Deliberately spread across saturation/hue/lightness so each is clearly
-   distinct at a glance, not just a subtle hue nudge. ---- */
-:root[data-theme="soft-blush"] {
-  /* mildest option: barely-there pink, medium purple-gray ink */
-  --color-cream: #faf1f0;
-  --color-cream-dark: #f2e0de;
-  --color-blush: #dba7ab;
-  --color-ink: #4b4550;
-  --color-ink-soft: #726b78;
-}
-
-:root[data-theme="bold-rose"] {
-  /* clearly, saturated pink background; deep purple ink for contrast */
-  --color-cream: #f5d9de;
-  --color-cream-dark: #eec3cb;
-  --color-blush: #c9607f;
-  --color-ink: #3a2f42;
-  --color-ink-soft: #5f4f66;
-}
-
-:root[data-theme="plum-slate"] {
-  /* cool, muted, gray-forward — least pink, most "gray" of the set */
-  --color-cream: #ece7ea;
-  --color-cream-dark: #dcd4da;
-  --color-blush: #9c8aa3;
-  --color-ink: #2e2b38;
-  --color-ink-soft: #55505f;
-}
-
-:root[data-theme="berry-mauve"] {
-  /* warm, deep, rich berry/wine tones */
-  --color-cream: #f2dfe0;
-  --color-cream-dark: #e6c7c9;
-  --color-blush: #a94f6a;
-  --color-ink: #46293a;
-  --color-ink-soft: #6b4a5c;
-}
-
-:root[data-theme="lilac-fog"] {
-  /* airiest and most purple-forward — lavender-tinted, not pink-tinted */
-  --color-cream: #f3ecf5;
-  --color-cream-dark: #e6d9ea;
-  --color-blush: #b48fc4;
-  --color-ink: #453552;
-  --color-ink-soft: #6c5b78;
-}
-
-/* ---- Dark mode, toggled via data-mode="dark" on <html> ---- */
-:root[data-mode="dark"] {
-  --color-cream: #221f1e;
-  --color-cream-dark: #2b2624;
-  --color-blush: #e6b3a8;
-  --color-ink: #ece4e0;
-  --color-ink-soft: #c7b9b3;
-}
-
-:root[data-theme="soft-blush"][data-mode="dark"] {
-  --color-cream: #2b2426;
-  --color-cream-dark: #362d30;
-  --color-blush: #e8b4ba;
-  --color-ink: #f2e7e6;
-  --color-ink-soft: #d1c0c2;
-}
-
-:root[data-theme="bold-rose"][data-mode="dark"] {
-  --color-cream: #2c161b;
-  --color-cream-dark: #3a1f26;
-  --color-blush: #e8829e;
-  --color-ink: #f7dde1;
-  --color-ink-soft: #d9a8b3;
-}
-
-:root[data-theme="plum-slate"][data-mode="dark"] {
-  --color-cream: #1e1c22;
-  --color-cream-dark: #28252d;
-  --color-blush: #b3a0bb;
-  --color-ink: #e8e5ea;
-  --color-ink-soft: #b8b2c0;
-}
-
-:root[data-theme="berry-mauve"][data-mode="dark"] {
-  --color-cream: #241419;
-  --color-cream-dark: #331d24;
-  --color-blush: #c96f8c;
-  --color-ink: #efd9de;
-  --color-ink-soft: #c9a0ab;
-}
-
-:root[data-theme="lilac-fog"][data-mode="dark"] {
-  --color-cream: #1f1826;
-  --color-cream-dark: #2a2032;
-  --color-blush: #c9a3d9;
-  --color-ink: #ece3f0;
-  --color-ink-soft: #c2adcf;
 }
 
 body {
