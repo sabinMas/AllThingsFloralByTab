@@ -32,9 +32,11 @@ export default function Hero() {
         </h1>
       )}
 
-      <p className="mx-auto mt-6 max-w-lg font-body text-xl text-ink-soft">
-        Wedding floral design rooted in Buckley, Washington &mdash; crafting
-        bouquets and blooms for couples across the Pacific Northwest.
+      <p className="mx-auto mt-6 max-w-lg font-body text-xl italic text-ink-soft">
+        &lsquo;Flowers make people better, happier &amp; more hopeful; they
+        are sunshine, food &amp; medicine for the soul&rsquo;
+        <br />
+        <span className="text-base not-italic">~ Luther Burbank</span>
       </p>
 
       <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">

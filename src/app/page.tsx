@@ -28,7 +28,10 @@ export default function Home() {
       <div className="h-dvh snap-y snap-mandatory overflow-y-auto md:hidden">
         <div className="relative flex h-dvh snap-start snap-always flex-col items-center justify-center">
           <Hero />
-          <div className="absolute bottom-14 flex flex-col items-center gap-1 text-ink-soft">
+          <div className="absolute bottom-14 flex flex-col items-center gap-2 text-ink-soft">
+            <span className="font-body text-xs font-semibold uppercase tracking-wide text-blush">
+              Now Booking 2026 &amp; 2027
+            </span>
             <svg
               viewBox="0 0 24 24"
               fill="none"
