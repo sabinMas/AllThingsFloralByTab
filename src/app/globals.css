@@ -24,6 +24,96 @@
   --font-script: var(--font-script), cursive;
 }
 
+/* ---- Palette candidates (light mode), toggled via data-theme on <html> ---- */
+:root[data-theme="mauve-blush"] {
+  --color-cream: #f7ecec;
+  --color-cream-dark: #efdcdc;
+  --color-blush: #d9a0b8;
+  --color-ink: #382f38;
+  --color-ink-soft: #5a4d59;
+}
+
+:root[data-theme="dusty-orchid"] {
+  --color-cream: #f6e9ec;
+  --color-cream-dark: #eeddde;
+  --color-blush: #cf9bb3;
+  --color-ink: #3d3140;
+  --color-ink-soft: #5f4f61;
+}
+
+:root[data-theme="rosewater-slate"] {
+  --color-cream: #f8ecec;
+  --color-cream-dark: #f0dcdc;
+  --color-blush: #d8a3a8;
+  --color-ink: #362f3a;
+  --color-ink-soft: #59505e;
+}
+
+:root[data-theme="lavender-blush"] {
+  --color-cream: #f5eaef;
+  --color-cream-dark: #ecdbe3;
+  --color-blush: #c99bc4;
+  --color-ink: #332d3d;
+  --color-ink-soft: #564f61;
+}
+
+:root[data-theme="antique-rose"] {
+  --color-cream: #f7ebe9;
+  --color-cream-dark: #f0dbd8;
+  --color-blush: #c98f9e;
+  --color-ink: #3b2f37;
+  --color-ink-soft: #5e4e59;
+}
+
+/* ---- Dark mode, toggled via data-mode="dark" on <html> ---- */
+:root[data-mode="dark"] {
+  --color-cream: #221f1e;
+  --color-cream-dark: #2b2624;
+  --color-blush: #e6b3a8;
+  --color-ink: #ece4e0;
+  --color-ink-soft: #c7b9b3;
+}
+
+:root[data-theme="mauve-blush"][data-mode="dark"] {
+  --color-cream: #241f26;
+  --color-cream-dark: #2e2830;
+  --color-blush: #e8b6cc;
+  --color-ink: #efe6ea;
+  --color-ink-soft: #c9bcc6;
+}
+
+:root[data-theme="dusty-orchid"][data-mode="dark"] {
+  --color-cream: #231e28;
+  --color-cream-dark: #2d2732;
+  --color-blush: #e2aac6;
+  --color-ink: #eee5ee;
+  --color-ink-soft: #c8bbca;
+}
+
+:root[data-theme="rosewater-slate"][data-mode="dark"] {
+  --color-cream: #221f26;
+  --color-cream-dark: #2c2930;
+  --color-blush: #e6b3ba;
+  --color-ink: #efe7e8;
+  --color-ink-soft: #cabec1;
+}
+
+:root[data-theme="lavender-blush"][data-mode="dark"] {
+  --color-cream: #221e2a;
+  --color-cream-dark: #2b2634;
+  --color-blush: #dba8d6;
+  --color-ink: #ece5ef;
+  --color-ink-soft: #c6bacb;
+}
+
+:root[data-theme="antique-rose"][data-mode="dark"] {
+  --color-cream: #241e24;
+  --color-cream-dark: #2e272e;
+  --color-blush: #d9a3b3;
+  --color-ink: #eee6e6;
+  --color-ink-soft: #cabdc3;
+}
+
 body {
   background: var(--color-cream);
   color: var(--color-ink);

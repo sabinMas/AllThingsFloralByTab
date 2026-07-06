@@ -4,7 +4,20 @@ import type { Metadata } from "next";
 import { Playfair_Display, Cormorant_Garamond, Alex_Brush } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 import "./globals.css";
+
+const themeInitScript = `
+(function () {
+  try {
+    var theme = localStorage.getItem("atf-theme");
+    var mode = localStorage.getItem("atf-mode");
+    var root = document.documentElement;
+    if (theme && theme !== "original") root.dataset.theme = theme;
+    if (mode === "dark") root.dataset.mode = mode;
+  } catch (e) {}
+})();
+`;
 
 const hasOgImage = fs.existsSync(
   path.join(process.cwd(), "public", "images", "og-image.jpg")
@@ -57,11 +70,16 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${playfair.variable} ${cormorant.variable} ${alexBrush.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="min-h-full flex flex-col bg-cream text-ink font-body">
         <Header hasLogo={hasSquareLogo} />
         <main className="flex-1">{children}</main>
         <Footer />
+        <ThemeSwitcher />
       </body>
     </html>
   );
