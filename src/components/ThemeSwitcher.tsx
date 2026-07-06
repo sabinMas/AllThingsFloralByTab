@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 
 const PALETTES = [
-  { id: "original", label: "Original", swatch: "#3a2e2a" },
-  { id: "mauve-blush", label: "Mauve Blush", swatch: "#382f38" },
-  { id: "dusty-orchid", label: "Dusty Orchid", swatch: "#3d3140" },
-  { id: "rosewater-slate", label: "Rosewater Slate", swatch: "#362f3a" },
-  { id: "lavender-blush", label: "Lavender Blush", swatch: "#332d3d" },
-  { id: "antique-rose", label: "Antique Rose", swatch: "#3b2f37" },
+  { id: "original", label: "Original", bg: "#f5f0e8", ink: "#3a2e2a" },
+  { id: "soft-blush", label: "Soft Blush", bg: "#faf1f0", ink: "#4b4550" },
+  { id: "bold-rose", label: "Bold Rose", bg: "#f5d9de", ink: "#3a2f42" },
+  { id: "plum-slate", label: "Plum Slate", bg: "#ece7ea", ink: "#2e2b38" },
+  { id: "berry-mauve", label: "Berry Mauve", bg: "#f2dfe0", ink: "#46293a" },
+  { id: "lilac-fog", label: "Lilac Fog", bg: "#f3ecf5", ink: "#453552" },
 ] as const;
 
 const THEME_KEY = "atf-theme";
@@ -50,10 +50,12 @@ export default function ThemeSwitcher() {
             aria-label={p.label}
             aria-pressed={theme === p.id}
             onClick={() => setTheme(p.id)}
-            className={`h-6 w-6 rounded-full border-2 transition-transform ${
+            className={`h-7 w-7 rounded-full border-2 transition-transform ${
               theme === p.id ? "scale-110 border-blush" : "border-transparent"
             }`}
-            style={{ backgroundColor: p.swatch }}
+            style={{
+              background: `conic-gradient(${p.ink} 0deg 180deg, ${p.bg} 180deg 360deg)`,
+            }}
           />
         ))}
       </div>
