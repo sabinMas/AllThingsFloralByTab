@@ -26,8 +26,20 @@ export default function Home() {
     <>
       {/* Mobile only: hero + full-screen slideshow snap-scroll together; desktop keeps normal flow below */}
       <div className="h-dvh snap-y snap-mandatory overflow-y-auto md:hidden">
-        <div className="flex h-dvh snap-start snap-always flex-col items-center justify-center">
+        <div className="relative flex h-dvh snap-start snap-always flex-col items-center justify-center">
           <Hero />
+          <div className="absolute bottom-6 flex flex-col items-center gap-1 text-ink-soft">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              className="h-5 w-5 animate-bounce"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+            </svg>
+            <span className="font-body text-xs uppercase tracking-wide">Swipe for more</span>
+          </div>
         </div>
         <div className="h-dvh snap-start snap-always">
           <MobileGallerySlideshow images={slideshowImages} />
