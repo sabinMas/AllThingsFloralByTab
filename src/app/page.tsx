@@ -5,8 +5,13 @@ import MobileGallerySlideshow from "@/components/MobileGallerySlideshow";
 import ServiceCard from "@/components/ServiceCard";
 import CTAButton from "@/components/CTAButton";
 import { getGalleryImages } from "@/lib/gallery";
-import { services } from "@/data/services";
 import { siteConfig } from "@/lib/site";
+
+const pricingHighlights = [
+  { title: "Bridal Bouquets", description: "Starts at $225.00" },
+  { title: "Bridesmaid Bouquets", description: "Starts at $100.00" },
+  { title: "Centerpieces", description: "Starts at $75.00" },
+];
 
 function shuffled<T>(items: T[]): T[] {
   const arr = [...items];
@@ -26,7 +31,7 @@ export default function Home() {
     <>
       {/* Mobile only: hero + full-screen slideshow snap-scroll together; desktop keeps normal flow below */}
       <div className="h-dvh snap-y snap-mandatory overflow-y-auto md:hidden">
-        <div className="relative flex h-dvh snap-start snap-always flex-col items-center justify-center">
+        <div className="relative flex h-dvh snap-start snap-always flex-col items-center justify-center pb-28">
           <Hero />
           <div className="absolute bottom-14 flex flex-col items-center gap-2 text-ink-soft">
             <span className="font-body text-xs font-semibold uppercase tracking-wide text-blush">
@@ -76,8 +81,8 @@ export default function Home() {
             subtitle="From full-service design to intimate elopements, every arrangement is built around your day."
           />
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            {services.map((service) => (
-              <ServiceCard key={service.title} {...service} />
+            {pricingHighlights.map((item) => (
+              <ServiceCard key={item.title} {...item} />
             ))}
           </div>
           <div className="mt-8 text-center">
