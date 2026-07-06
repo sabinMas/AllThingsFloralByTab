@@ -42,25 +42,28 @@ export default function AboutPage() {
         )}
       </div>
 
-      {/* TODO(Tab): replace with real bio copy — background, how the business
-          started, design philosophy, personal touch for PNW couples. */}
       <div className="mt-10 space-y-5 font-body text-xl leading-relaxed text-ink-soft">
         <p>
-          Hi, I&rsquo;m Tab &mdash; the hands, heart, and design eye behind All
-          Things Floral by Tab. Based in Buckley, Washington, I design wedding
-          florals for couples across the Pacific Northwest, from full
-          ceremony-to-reception installations to intimate elopement bouquets.
+          Hi, I&rsquo;m Tabatha, the owner and floral designer behind All
+          Things Floral by Tab.
         </p>
         <p>
-          I believe your florals should feel like an extension of your
-          story: personal, unfussy, and full of life. Every bouquet,
-          centerpiece, and arch is built around your venue, your season, and
-          the way you want your day to feel.
+          For the past 10 years, I&rsquo;ve had the joy of creating wedding
+          flowers that celebrate each couple&rsquo;s unique love story. I
+          believe every wedding deserves florals that feel personal, timeless,
+          and thoughtfully designed to reflect your vision.
         </p>
         <p>
-          When I&rsquo;m not elbow-deep in stems, you can find me exploring
-          the PNW&rsquo;s farms and forests for inspiration &mdash; and
-          probably sharing it all on Instagram.
+          When I&rsquo;m not designing for weddings, you&rsquo;ll usually find
+          me in my garden growing flowers to incorporate into my arrangements
+          and bouquets. There&rsquo;s something incredibly special about
+          using blooms I&rsquo;ve nurtured from seed to create meaningful
+          pieces for someone&rsquo;s wedding day.
+        </p>
+        <p>
+          I&rsquo;m also a wife, mother, and proud grandmother. My family and
+          I love spending time outdoors, whether we&rsquo;re exploring,
+          gardening, or simply enjoying nature together.
         </p>
       </div>
 
