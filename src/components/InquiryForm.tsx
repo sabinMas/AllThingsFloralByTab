@@ -122,25 +122,14 @@ export default function InquiryForm() {
       <fieldset className="space-y-6">
         <legend className="font-script text-3xl text-blush">Wedding Details</legend>
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          <div>
-            <label htmlFor="weddingDate" className={labelClass}>
-              Wedding Date *
-            </label>
-            <input id="weddingDate" name="weddingDate" type="date" required className={inputClass} />
-            <p className="mt-1 font-body text-sm text-ink-soft">
-              Or your estimated date if not finalized.
-            </p>
-          </div>
-          <div>
-            <label htmlFor="dateFlexible" className={labelClass}>
-              Is Your Date Flexible?
-            </label>
-            <select id="dateFlexible" name="dateFlexible" className={inputClass}>
-              <option>Yes</option>
-              <option>No</option>
-            </select>
-          </div>
+        <div>
+          <label htmlFor="weddingDate" className={labelClass}>
+            Wedding Date *
+          </label>
+          <input id="weddingDate" name="weddingDate" type="date" required className={inputClass} />
+          <p className="mt-1 font-body text-sm text-ink-soft">
+            Or your estimated date if not finalized.
+          </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2">
