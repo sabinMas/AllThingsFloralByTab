@@ -232,17 +232,27 @@ export default function InquiryForm() {
         <legend className="font-script text-3xl text-blush">Budget &amp; Logistics</legend>
 
         <div>
-          <label htmlFor="budgetRange" className={labelClass}>
-            Estimated Floral Budget Range
+          <label htmlFor="estimatedBudget" className={labelClass}>
+            Estimated Floral Budget
           </label>
-          <select id="budgetRange" name="budgetRange" className={inputClass}>
-            <option>Under $1,500</option>
-            <option>$1,500–$3,000</option>
-            <option>$3,000–$5,000</option>
-            <option>$5,000–$8,000</option>
-            <option>$8,000+</option>
-            <option>Not sure yet</option>
-          </select>
+          <div className="relative">
+            <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft">
+              $
+            </span>
+            <input
+              id="estimatedBudget"
+              name="estimatedBudget"
+              type="number"
+              min="0"
+              step="50"
+              inputMode="numeric"
+              placeholder="e.g. 3000"
+              className={`${inputClass} pl-8`}
+            />
+          </div>
+          <p className="mt-1 font-body text-sm text-ink-soft">
+            Not sure yet? Leave this blank and we can talk through it together.
+          </p>
         </div>
 
         <div>

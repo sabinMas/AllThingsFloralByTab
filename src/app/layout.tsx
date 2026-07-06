@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import type { Metadata } from "next";
-import { Playfair_Display, Cormorant_Garamond, Alex_Brush } from "next/font/google";
+import { Antic_Didone, Cormorant_Garamond, Corinthia } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -13,10 +13,10 @@ const hasSquareLogo = fs.existsSync(
   path.join(process.cwd(), "public", "images", "logo", "logo-square.png")
 );
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const anticDidone = Antic_Didone({
+  variable: "--font-antic-didone",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "400",
 });
 
 const cormorant = Cormorant_Garamond({
@@ -25,10 +25,10 @@ const cormorant = Cormorant_Garamond({
   weight: ["400", "500", "600"],
 });
 
-const alexBrush = Alex_Brush({
+const corinthia = Corinthia({
   variable: "--font-script",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -56,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${cormorant.variable} ${alexBrush.variable} h-full antialiased`}
+      className={`${anticDidone.variable} ${cormorant.variable} ${corinthia.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-ink font-body">
         <Header hasLogo={hasSquareLogo} />

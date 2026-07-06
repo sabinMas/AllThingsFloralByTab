@@ -19,7 +19,7 @@
   --color-ink: var(--color-ink);
   --color-ink-soft: var(--color-ink-soft);
 
-  --font-display: var(--font-playfair), serif;
+  --font-display: var(--font-antic-didone), serif;
   --font-body: var(--font-cormorant), serif;
   --font-script: var(--font-script), cursive;
 }
