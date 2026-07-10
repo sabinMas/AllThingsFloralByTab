@@ -43,7 +43,8 @@ export const metadata: Metadata = {
     title: "All Things Floral by Tab",
     description:
       "Wedding floral design based in Buckley, Washington, serving couples across the Pacific Northwest.",
-    ...(hasOgImage ? { images: ["/images/og-image.jpg"] } : {}),
+    images: ["/images/logo/logo-banner.png"],
+    url: "https://allthingsfloralbytab.com",
     type: "website",
   },
 };
