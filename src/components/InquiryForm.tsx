@@ -18,8 +18,22 @@ const florals = [
   "Centerpieces",
   "Reception Decor",
   "Installations",
-  "Other",
 ];
+
+const QTY_PREFIX = "qty__";
+const QTY_MAX = 99;
+const TEXT_MAX = 2000;
+
+// Strips HTML tags, angle brackets, and non-printing control characters
+// (keeping tabs/newlines) so nothing markup-like reaches the email.
+function sanitizeText(value: string): string {
+  return value
+    .replace(/<[^>]*>?/g, "")
+    .replace(/[<>]/g, "")
+    .replace(/\p{Cc}/gu, (c) => (c === "\n" || c === "\r" || c === "\t" ? c : ""))
+    .trim()
+    .slice(0, TEXT_MAX);
+}
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -35,7 +49,22 @@ export default function InquiryForm() {
     }
 
     const form = e.currentTarget;
-    const formData = new FormData(form);
+    const raw = new FormData(form);
+    const formData = new FormData();
+
+    for (const [name, value] of raw.entries()) {
+      if (typeof value !== "string") continue;
+
+      if (name.startsWith(QTY_PREFIX)) {
+        // Quantity fields: coerce to a whole number in [1, QTY_MAX]; skip blanks/zeros.
+        const qty = Math.floor(Number(value));
+        if (!Number.isFinite(qty) || qty <= 0) continue;
+        formData.append(`${name.slice(QTY_PREFIX.length)} (quantity)`, String(Math.min(qty, QTY_MAX)));
+      } else {
+        formData.append(name, sanitizeText(value));
+      }
+    }
+
     setStatus("submitting");
 
     try {
@@ -172,14 +201,43 @@ export default function InquiryForm() {
 
         <div>
           <span className={labelClass}>What florals are you interested in?</span>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          <p className="mb-3 font-body text-sm text-ink-soft">
+            Enter a quantity for each item you&rsquo;d like &mdash; leave blank for none.
+          </p>
+          <div className="grid gap-3 sm:grid-cols-2">
             {florals.map((item) => (
-              <label key={item} className="flex items-center gap-2 font-body text-base text-ink">
-                <input type="checkbox" name="florals" value={item} className="h-4 w-4 accent-blush" />
-                {item}
+              <label
+                key={item}
+                className="flex items-center justify-between gap-3 rounded-md border border-ink/20 bg-white px-4 py-2.5 font-body text-base text-ink"
+              >
+                <span>{item}</span>
+                <input
+                  type="number"
+                  name={`${QTY_PREFIX}${item}`}
+                  min={0}
+                  max={QTY_MAX}
+                  step={1}
+                  inputMode="numeric"
+                  placeholder="0"
+                  className="w-20 rounded-md border border-ink/20 px-2 py-1.5 text-center text-ink focus:border-blush focus:outline-none focus:ring-1 focus:ring-blush"
+                />
               </label>
             ))}
           </div>
+        </div>
+
+        <div>
+          <label htmlFor="floralsOther" className={labelClass}>
+            Other floral needs
+          </label>
+          <input
+            id="floralsOther"
+            name="floralsOther"
+            type="text"
+            maxLength={200}
+            placeholder="Anything not listed above"
+            className={inputClass}
+          />
         </div>
 
         <div>
@@ -191,6 +249,7 @@ export default function InquiryForm() {
             name="visionDescription"
             required
             rows={4}
+            maxLength={TEXT_MAX}
             className={inputClass}
           />
         </div>
@@ -262,7 +321,13 @@ export default function InquiryForm() {
           <label htmlFor="anythingElse" className={labelClass}>
             Anything else we should know?
           </label>
-          <textarea id="anythingElse" name="anythingElse" rows={3} className={inputClass} />
+          <textarea
+            id="anythingElse"
+            name="anythingElse"
+            rows={3}
+            maxLength={TEXT_MAX}
+            className={inputClass}
+          />
         </div>
       </fieldset>
 
