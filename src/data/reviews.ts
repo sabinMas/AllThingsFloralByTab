@@ -22,7 +22,7 @@ export const MAX_REVIEWS = 100;
 export const reviews: Review[] = [
   {
     id: "michaela-tews-2018",
-    names: "Michaela Tews",
+    names: "MT",
     weddingDate: "August 2018",
     quote:
       "Tabatha did a beautiful job with our flowers! I wanted something simple and classic, but with a PNW forward feeling and she executed perfectly on my vision. I highly recommend her to any bride looking for someone that will over deliver on their dream wedding flowers 🤍",
@@ -31,7 +31,7 @@ export const reviews: Review[] = [
   },
   {
     id: "mackenzie-mason-2023",
-    names: "Mackenzie & Mason",
+    names: "M&M",
     weddingDate: "September 2023",
     quote:
       "Our flowers were absolutely perfect, we opted for a gem tone color palette and chose difficult flowers to work with. Tab listened to our vision and worked within our budget to create the perfect bouquets, and arrangements. 10 out of 10 would recommend to anyone!!",
