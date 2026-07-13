@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { sanitizeText } from "@/lib/sanitize";
 
 const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
 
@@ -23,17 +24,6 @@ const florals = [
 const QTY_PREFIX = "qty__";
 const QTY_MAX = 99;
 const TEXT_MAX = 2000;
-
-// Strips HTML tags, angle brackets, and non-printing control characters
-// (keeping tabs/newlines) so nothing markup-like reaches the email.
-function sanitizeText(value: string): string {
-  return value
-    .replace(/<[^>]*>?/g, "")
-    .replace(/[<>]/g, "")
-    .replace(/\p{Cc}/gu, (c) => (c === "\n" || c === "\r" || c === "\t" ? c : ""))
-    .trim()
-    .slice(0, TEXT_MAX);
-}
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -61,7 +51,7 @@ export default function InquiryForm() {
         if (!Number.isFinite(qty) || qty <= 0) continue;
         formData.append(`${name.slice(QTY_PREFIX.length)} (quantity)`, String(Math.min(qty, QTY_MAX)));
       } else {
-        formData.append(name, sanitizeText(value));
+        formData.append(name, sanitizeText(value, TEXT_MAX));
       }
     }
 

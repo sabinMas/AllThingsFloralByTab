@@ -3,9 +3,11 @@ import SectionHeading from "@/components/SectionHeading";
 import ImageGallery from "@/components/ImageGallery";
 import MobileGallerySlideshow from "@/components/MobileGallerySlideshow";
 import ServiceCard from "@/components/ServiceCard";
+import ReviewCard from "@/components/ReviewCard";
 import CTAButton from "@/components/CTAButton";
 import { getGalleryImages } from "@/lib/gallery";
 import { siteConfig } from "@/lib/site";
+import { reviews } from "@/data/reviews";
 
 const pricingHighlights = [
   { title: "Bridal Bouquets", description: "Starts at $225.00" },
@@ -26,6 +28,8 @@ export default function Home() {
   const allImages = getGalleryImages();
   const teaserImages = allImages.slice(0, 6);
   const slideshowImages = shuffled(allImages);
+  const featuredReviews = reviews.filter((r) => r.featured).slice(0, 3);
+  const homepageReviews = featuredReviews.length > 0 ? featuredReviews : reviews.slice(0, 3);
 
   return (
     <>
@@ -92,6 +96,25 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {homepageReviews.length > 0 ? (
+        <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <SectionHeading
+            eyebrow="Kind Words"
+            title="What Couples Are Saying"
+          />
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {homepageReviews.map((review) => (
+              <ReviewCard key={review.id} {...review} />
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <CTAButton href="/reviews" variant="outline">
+              Read All Reviews
+            </CTAButton>
+          </div>
+        </section>
+      ) : null}
 
       <section className="mx-auto max-w-2xl px-4 py-16 text-center sm:px-6">
         <SectionHeading

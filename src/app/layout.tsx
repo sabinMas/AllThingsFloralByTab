@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Antic_Didone, Cormorant_Garamond, Corinthia } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
 const hasOgImage = fs.existsSync(
@@ -60,6 +61,26 @@ export default function RootLayout({
       className={`${anticDidone.variable} ${cormorant.variable} ${corinthia.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-ink font-body">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Florist",
+              name: siteConfig.name,
+              url: "https://allthingsfloralbytab.com",
+              image: "https://allthingsfloralbytab.com/images/logo/logo-banner.png",
+              areaServed: siteConfig.serviceArea,
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Buckley",
+                addressRegion: "WA",
+                addressCountry: "US",
+              },
+              sameAs: [siteConfig.instagramUrl, siteConfig.facebookUrl],
+            }),
+          }}
+        />
         <Header hasLogo={hasSquareLogo} />
         <main className="flex-1">{children}</main>
         <Footer />
