@@ -77,6 +77,25 @@ export default function Home() {
         </div>
       </section>
 
+      {homepageReviews.length > 0 ? (
+        <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <SectionHeading
+            eyebrow="Kind Words"
+            title="What Couples Are Saying"
+          />
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {homepageReviews.map((review) => (
+              <ReviewCard key={review.id} {...review} />
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <CTAButton href="/reviews" variant="outline">
+              Read All Reviews
+            </CTAButton>
+          </div>
+        </section>
+      ) : null}
+
       <section className="bg-cream-dark/50 py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading
@@ -96,25 +115,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {homepageReviews.length > 0 ? (
-        <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <SectionHeading
-            eyebrow="Kind Words"
-            title="What Couples Are Saying"
-          />
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {homepageReviews.map((review) => (
-              <ReviewCard key={review.id} {...review} />
-            ))}
-          </div>
-          <div className="mt-8 text-center">
-            <CTAButton href="/reviews" variant="outline">
-              Read All Reviews
-            </CTAButton>
-          </div>
-        </section>
-      ) : null}
 
       <section className="mx-auto max-w-2xl px-4 py-16 text-center sm:px-6">
         <SectionHeading
