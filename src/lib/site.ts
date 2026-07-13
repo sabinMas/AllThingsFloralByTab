@@ -5,9 +5,7 @@ export const siteConfig = {
   instagramUrl: "https://www.instagram.com/allthingsfloralbytab/",
   instagramHandle: "@allthingsfloralbytab",
   facebookUrl: "https://www.facebook.com/profile.php?id=61591190619034",
-  // TODO(Tab): once the Google Business Profile is live, paste its short
-  // review link here (Business Profile > Ask for reviews > Get more reviews).
-  googleReviewUrl: "",
+  googleReviewUrl: "https://g.page/r/CUGBvIIBSq0EEAI/review",
 };
 
 export const navLinks = [
