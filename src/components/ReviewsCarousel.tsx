@@ -5,6 +5,7 @@ import type { Review } from "@/data/reviews";
 import ReviewCard from "@/components/ReviewCard";
 
 const AUTOPLAY_MS = 7000;
+const FADE_MS = 200;
 const PAGE_SIZE = 2;
 
 function chunk<T>(items: T[], size: number): T[][] {
@@ -18,13 +19,26 @@ function chunk<T>(items: T[], size: number): T[][] {
 export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
   const pages = chunk(reviews, PAGE_SIZE);
   const [index, setIndex] = useState(0);
+  const [fading, setFading] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const fadeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const indexRef = useRef(0);
+  indexRef.current = index;
+
+  const changeTo = (nextIndex: number) => {
+    if (fadeTimeoutRef.current) clearTimeout(fadeTimeoutRef.current);
+    setFading(true);
+    fadeTimeoutRef.current = setTimeout(() => {
+      setIndex(nextIndex);
+      setFading(false);
+    }, FADE_MS);
+  };
 
   const restartAutoplay = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     if (pages.length <= 1) return;
     intervalRef.current = setInterval(() => {
-      setIndex((i) => (i + 1) % pages.length);
+      changeTo((indexRef.current + 1) % pages.length);
     }, AUTOPLAY_MS);
   };
 
@@ -32,35 +46,30 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
     restartAutoplay();
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
+      if (fadeTimeoutRef.current) clearTimeout(fadeTimeoutRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pages.length]);
 
   const goTo = (next: number) => {
-    setIndex(((next % pages.length) + pages.length) % pages.length);
+    changeTo(((next % pages.length) + pages.length) % pages.length);
     restartAutoplay();
   };
 
   if (pages.length === 0) return null;
 
+  const activePage = pages[index];
+
   return (
     <div>
-      <div className="overflow-hidden">
-        <div
-          className="flex transition-transform duration-500 ease-out"
-          style={{ transform: `translateX(-${index * 100}%)` }}
-        >
-          {pages.map((page, i) => (
-            <div
-              key={i}
-              className="grid w-full flex-shrink-0 items-start gap-6 sm:grid-cols-2"
-            >
-              {page.map((review) => (
-                <ReviewCard key={review.id} {...review} />
-              ))}
-            </div>
-          ))}
-        </div>
+      <div
+        className={`grid gap-6 transition-opacity duration-200 ease-out sm:grid-cols-2 ${
+          fading ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        {activePage.map((review) => (
+          <ReviewCard key={review.id} {...review} />
+        ))}
       </div>
       {pages.length > 1 ? (
         <div className="mt-6 flex justify-center gap-2">
