@@ -3,7 +3,7 @@ import SectionHeading from "@/components/SectionHeading";
 import ImageGallery from "@/components/ImageGallery";
 import MobileGallerySlideshow from "@/components/MobileGallerySlideshow";
 import ServiceCard from "@/components/ServiceCard";
-import ReviewCard from "@/components/ReviewCard";
+import ReviewsCarousel from "@/components/ReviewsCarousel";
 import CTAButton from "@/components/CTAButton";
 import { getGalleryImages } from "@/lib/gallery";
 import { siteConfig } from "@/lib/site";
@@ -28,8 +28,8 @@ export default function Home() {
   const allImages = getGalleryImages();
   const teaserImages = allImages.slice(0, 6);
   const slideshowImages = shuffled(allImages);
-  const featuredReviews = reviews.filter((r) => r.featured).slice(0, 3);
-  const homepageReviews = featuredReviews.length > 0 ? featuredReviews : reviews.slice(0, 3);
+  const featuredReviews = reviews.filter((r) => r.featured);
+  const homepageReviews = featuredReviews.length > 0 ? featuredReviews : reviews;
 
   return (
     <>
@@ -83,10 +83,8 @@ export default function Home() {
             eyebrow="Kind Words"
             title="What Couples Are Saying"
           />
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {homepageReviews.map((review) => (
-              <ReviewCard key={review.id} {...review} />
-            ))}
+          <div className="mt-10">
+            <ReviewsCarousel reviews={homepageReviews} />
           </div>
           <div className="mt-8 text-center">
             <CTAButton href="/reviews" variant="outline">

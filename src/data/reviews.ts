@@ -22,7 +22,7 @@ export const MAX_REVIEWS = 100;
 export const reviews: Review[] = [
   {
     id: "michaela-tews-2018",
-    names: "MT",
+    names: "Michaela",
     weddingDate: "August 2018",
     quote:
       "Tabatha did a beautiful job with our flowers! I wanted something simple and classic, but with a PNW forward feeling and she executed perfectly on my vision. I highly recommend her to any bride looking for someone that will over deliver on their dream wedding flowers 🤍",
@@ -31,10 +31,37 @@ export const reviews: Review[] = [
   },
   {
     id: "mackenzie-mason-2023",
-    names: "M&M",
+    names: "Mackenzie & Mason",
     weddingDate: "September 2023",
     quote:
       "Our flowers were absolutely perfect, we opted for a gem tone color palette and chose difficult flowers to work with. Tab listened to our vision and worked within our budget to create the perfect bouquets, and arrangements. 10 out of 10 would recommend to anyone!!",
+    rating: 5,
+    featured: true,
+  },
+  {
+    id: "kaylee-logan-2022",
+    names: "Kaylee & Logan",
+    weddingDate: "August 2022",
+    quote:
+      "Tabatha made my wedding floral visions a reality. She's so easy and nice to work with and listens to all of your ideas to help create the perfect bouquet/floral arrangements! I would recommend her to any bride looking for beautiful flowers for their special day!",
+    rating: 5,
+    featured: true,
+  },
+  {
+    id: "emily-2019",
+    names: "Emily",
+    weddingDate: "June 2019",
+    quote:
+      "Tab is the best in the business! She was kind, patient, and understanding. She understands the vision and executes to absolute perfection. I never had to micro manage or any worries about how the florals would turn out. There were some hiccups along the way, but I NEVER knew they happened until way later time. Some things I did not have an opinion about or felt too overwhelmed to make decisions on and Tab just handled it and made executive decisions. If you need stunning florals and a seamless process, Tab is your woman! Couldn’t recommend enough.",
+    rating: 5,
+    featured: true,
+  },
+  {
+    id: "dane-lisa-2025",
+    names: "Dane & Lisa",
+    weddingDate: "June 2025",
+    quote:
+      "Tabatha went above and beyond to bring our floral vision to life! She met with me in person several times to go over every detail and made the entire process so easy. She communicated with me throughout the planning process and was wonderful to work with. I highly recommend her! 😊",
     rating: 5,
     featured: true,
   },
