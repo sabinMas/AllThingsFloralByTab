@@ -65,4 +65,12 @@ export const reviews: Review[] = [
     rating: 5,
     featured: true,
   },
+  {
+    id: "kennan-tristan-2021",
+    names: "Kennan & Tristan",
+    weddingDate: "May 2021",
+    quote:
+      "We couldn’t have been happier with our wedding flowers! From the very beginning, our florist Tab was kind, professional, and so easy to work with. Even with the challenges of planning around Mother’s Day and the flower shortages that come with one of the busiest floral weekends of the year, she went above and beyond to make everything absolutely beautiful. If you’re looking for a florist who is talented, creative, reliable, and genuinely cares about making your day special, I can’t recommend Tab enough. Thank you for making our wedding so beautiful despite all the challenges—we are so grateful!",
+    rating: 5,
+  },
 ];
