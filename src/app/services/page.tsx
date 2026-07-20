@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceCard from "@/components/ServiceCard";
 import CTAButton from "@/components/CTAButton";
-import { services } from "@/data/services";
+import { services, pricingHighlights } from "@/data/services";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -22,6 +22,9 @@ export default function ServicesPage() {
       <div className="mt-12 space-y-6">
         {services.map((service) => (
           <ServiceCard key={service.title} {...service} />
+        ))}
+        {pricingHighlights.map((item) => (
+          <ServiceCard key={item.title} {...item} footer="Contact for pricing" />
         ))}
       </div>
 

@@ -5,6 +5,12 @@ export type Service = {
 
 // TODO(Tab): confirm final package names, descriptions, and whether pricing
 // should be shown publicly. Placeholder copy below until real content lands.
+export const pricingHighlights: Service[] = [
+  { title: "Bridal Bouquets", description: "Starts at $225.00" },
+  { title: "Bridesmaid Bouquets", description: "Starts at $100.00" },
+  { title: "Centerpieces", description: "Starts at $75.00" },
+];
+
 export const services: Service[] = [
   {
     title: "Full-Service Wedding Florals",

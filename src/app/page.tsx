@@ -8,12 +8,7 @@ import CTAButton from "@/components/CTAButton";
 import { getGalleryImages } from "@/lib/gallery";
 import { siteConfig } from "@/lib/site";
 import { reviews } from "@/data/reviews";
-
-const pricingHighlights = [
-  { title: "Bridal Bouquets", description: "Starts at $225.00" },
-  { title: "Bridesmaid Bouquets", description: "Starts at $100.00" },
-  { title: "Centerpieces", description: "Starts at $75.00" },
-];
+import { pricingHighlights } from "@/data/services";
 
 function shuffled<T>(items: T[]): T[] {
   const arr = [...items];
