@@ -23,8 +23,6 @@ export default function Home() {
   const allImages = getGalleryImages();
   const teaserImages = allImages.slice(0, 6);
   const slideshowImages = shuffled(allImages);
-  const featuredReviews = reviews.filter((r) => r.featured);
-  const homepageReviews = featuredReviews.length > 0 ? featuredReviews : reviews;
 
   return (
     <>
@@ -72,14 +70,14 @@ export default function Home() {
         </div>
       </section>
 
-      {homepageReviews.length > 0 ? (
+      {reviews.length > 0 ? (
         <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
           <SectionHeading
             eyebrow="Kind Words"
             title="What Couples Are Saying"
           />
           <div className="mt-10">
-            <ReviewsCarousel reviews={homepageReviews} />
+            <ReviewsCarousel reviews={reviews} />
           </div>
           <div className="mt-8 text-center">
             <CTAButton href="/reviews" variant="outline">
